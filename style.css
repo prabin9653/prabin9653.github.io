@@ -1,65 +1,156 @@
-body {
+/* ====== Global Styles ====== */
+* {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background-color: #f4f6f8;
-  color: #333;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ====== Header ====== */
 header {
-  background-color: #0f172a;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
   color: white;
-  padding: 60px 20px;
+  padding: 40px 20px;
   text-align: center;
 }
 
 header h1 {
-  margin: 0;
   font-size: 2.5rem;
+  font-weight: 700;
 }
 
 header p {
-  font-size: 1.1rem;
   margin-top: 10px;
+  font-size: 1.2rem;
 }
 
-section {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
-
-section h2 {
-  color: #0f172a;
-  border-bottom: 2px solid #e5e7eb;
-  padding-bottom: 10px;
-}
-
-.card {
-  background: white;
-  padding: 20px;
+.navbar {
   margin-top: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
-.resume-btn {
-  display: inline-block;
-  padding: 12px 20px;
-  background-color: #0f172a;
+
+.navbar a {
   color: white;
   text-decoration: none;
-  border-radius: 6px;
+  margin: 0 15px;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #ffd700;
+}
+
+/* ====== Sections ====== */
+.section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #2575fc;
+  text-align: center;
+}
+
+/* ====== Cards ====== */
+.card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px 0;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* ====== Resume Button ====== */
+.resume-btn {
+  display: inline-block;
+  background-color: #2575fc;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
   font-weight: 600;
   margin-top: 10px;
+  transition: transform 0.3s, background-color 0.3s;
 }
 
 .resume-btn:hover {
-  background-color: #1e293b;
+  background-color: #6a11cb;
+  transform: scale(1.05);
 }
 
+/* ====== Lists Styling ====== */
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
 
+li {
+  margin-bottom: 10px;
+}
+
+/* ====== Contact Links ====== */
+a {
+  color: #2575fc;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ====== Footer ====== */
 footer {
   text-align: center;
   padding: 20px;
-  background: #e5e7eb;
-  font-size: 0.9rem;
+  background-color: #2575fc;
+  color: white;
+  font-weight: 500;
+}
+
+/* ====== Fade-in Animation ====== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  .navbar a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .section {
+    padding: 40px 15px;
+  }
 }
