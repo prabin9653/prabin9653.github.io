@@ -22,6 +22,7 @@
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
     <a href="#metrics">Metrics</a>
+    <a href="#testimonials">Testimonials</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
@@ -29,7 +30,7 @@
 <main>
 
   <!-- About Section -->
-  <section id="about" class="section fade-in">
+  <section id="about" class="section">
     <h2>About Me</h2>
     <div class="card">
       <p>
@@ -47,7 +48,7 @@
   </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="section fade-in">
+  <section id="skills" class="section">
     <h2>Core Skills</h2>
     <div class="skills">
       <div class="skill">
@@ -70,7 +71,7 @@
   </section>
 
   <!-- Tools Section -->
-  <section id="tools" class="section fade-in">
+  <section id="tools" class="section">
     <h2>Tools I Use</h2>
     <div class="card">
       <ul>
@@ -88,7 +89,7 @@
   </section>
 
   <!-- Experience Section -->
-  <section id="experience" class="section fade-in">
+  <section id="experience" class="section">
     <h2>Experience</h2>
     <div class="card">
       <ul>
@@ -101,7 +102,7 @@
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="section fade-in">
+  <section id="projects" class="section">
     <h2>Projects</h2>
     <div class="project-carousel">
       <div class="carousel-slide">
@@ -120,7 +121,7 @@
   </section>
 
   <!-- Metrics Section -->
-  <section id="metrics" class="section fade-in">
+  <section id="metrics" class="section">
     <h2>Key Achievements</h2>
     <div class="metrics-container">
       <div class="metric">
@@ -142,8 +143,27 @@
     </div>
   </section>
 
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="section">
+    <h2>Testimonials</h2>
+    <div class="testimonial-slider">
+      <div class="testimonial">
+        <p>"Prabin helped our website achieve record organic traffic growth!"</p>
+        <h4>- Client A</h4>
+      </div>
+      <div class="testimonial">
+        <p>"His social media strategies increased our engagement by 120% in 3 months."</p>
+        <h4>- Client B</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Professional, data-driven, and highly effective marketing campaigns."</p>
+        <h4>- Client C</h4>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact Section -->
-  <section id="contact" class="section fade-in">
+  <section id="contact" class="section">
     <h2>Contact</h2>
     <div class="card">
       <p>Email: <a href="mailto:yourname@email.com">yourname@email.com</a></p>
@@ -171,36 +191,44 @@
   links.forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
-      const target = document.querySelector(link.getAttribute('href'));
-      target.scrollIntoView({ behavior: 'smooth' });
+      document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
   });
 
-  // Animate skill bars
+  // Skill Bar Animation
   document.querySelectorAll('.skill-bar span').forEach(bar => {
     const width = bar.style.width;
     bar.style.width = '0';
-    setTimeout(() => {
-      bar.style.width = width;
-    }, 500);
+    setTimeout(() => { bar.style.width = width; }, 500);
   });
 
-  // Animated Counters
+  // Counters Animation
   const counters = document.querySelectorAll('.counter');
   counters.forEach(counter => {
     const updateCount = () => {
       const target = +counter.getAttribute('data-target');
       const count = +counter.innerText;
       const increment = target / 100;
-      if (count < target) {
+      if(count < target){
         counter.innerText = Math.ceil(count + increment);
         setTimeout(updateCount, 20);
-      } else {
-        counter.innerText = target;
-      }
+      } else { counter.innerText = target; }
     };
     updateCount();
   });
+
+  // Scroll Reveal Animation
+  const sections = document.querySelectorAll('.section');
+  const revealSection = (entries, observer) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+  const observer = new IntersectionObserver(revealSection, { threshold: 0.2 });
+  sections.forEach(section => observer.observe(section));
 </script>
 
 </body>
