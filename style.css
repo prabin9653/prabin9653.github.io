@@ -101,3 +101,14 @@ footer { text-align: center; padding: 20px; background-color: #2575FC; color: wh
   .project-carousel { flex-direction: column; align-items: center; }
   .carousel-slide { min-width: 90%; }
 }
+.section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
