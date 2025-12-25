@@ -55,7 +55,7 @@ header p {
 
 .section h2 {
   font-size: 2rem;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   color: #2575fc;
   text-align: center;
 }
@@ -101,6 +101,103 @@ ul {
 
 li {
   margin-bottom: 10px;
+}
+
+/* ====== Skills ====== */
+.skills {
+  margin-top: 20px;
+}
+
+.skill {
+  margin-bottom: 15px;
+}
+
+.skill p {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.skill-bar {
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 15px;
+}
+
+.skill-bar span {
+  display: block;
+  height: 100%;
+  background-color: #2575fc;
+  width: 0;
+  border-radius: 10px;
+  animation: fillBar 2s forwards;
+}
+
+@keyframes fillBar {
+  to { width: var(--width); }
+}
+
+/* ====== Project Carousel ====== */
+.project-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+}
+
+.carousel-slide {
+  min-width: 300px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+  text-align: center;
+  padding: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.carousel-slide img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.carousel-slide:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* ====== Contact Form ====== */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2575fc;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #6a11cb;
+  transform: scale(1.05);
 }
 
 /* ====== Contact Links ====== */
@@ -152,5 +249,14 @@ footer {
 
   .section {
     padding: 40px 15px;
+  }
+
+  .project-carousel {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .carousel-slide {
+    min-width: 90%;
   }
 }
