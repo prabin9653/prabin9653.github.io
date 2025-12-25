@@ -1,262 +1,103 @@
 /* ====== Global Styles ====== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-}
-
-body {
-  background-color: #f9f9f9;
-  color: #333;
-  line-height: 1.6;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+body { background-color: #f9f9f9; color: #333; line-height: 1.6; }
 
 /* ====== Header ====== */
 header {
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  background: linear-gradient(135deg, #6A11CB, #2575FC);
   color: white;
-  padding: 40px 20px;
+  padding: 60px 20px;
   text-align: center;
+  border-bottom: 5px solid #FFD700;
 }
-
-header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-}
-
-header p {
-  margin-top: 10px;
-  font-size: 1.2rem;
-}
-
-.navbar {
-  margin-top: 20px;
-}
-
+header h1 { font-size: 2.5rem; font-weight: 700; }
+header p { margin-top: 10px; font-size: 1.2rem; }
+.navbar { margin-top: 20px; }
 .navbar a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-  font-weight: 600;
-  transition: color 0.3s;
+  color: white; text-decoration: none; margin: 0 15px; font-weight: 600; transition: color 0.3s;
 }
-
-.navbar a:hover {
-  color: #ffd700;
-}
+.navbar a:hover { color: #FFD700; }
 
 /* ====== Sections ====== */
-.section {
-  padding: 60px 20px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.section h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: #2575fc;
-  text-align: center;
-}
+.section { padding: 60px 20px; max-width: 1000px; margin: 0 auto; }
+.section h2 { font-size: 2rem; margin-bottom: 30px; color: #2575FC; text-align: center; }
 
 /* ====== Cards ====== */
 .card {
-  background-color: white;
-  border-radius: 12px;
-  padding: 20px;
-  margin: 15px 0;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: white; border-radius: 12px; padding: 20px; margin: 15px 0;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;
 }
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
+.card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
 
 /* ====== Resume Button ====== */
 .resume-btn {
-  display: inline-block;
-  background-color: #2575fc;
-  color: white;
-  padding: 12px 25px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  margin-top: 10px;
-  transition: transform 0.3s, background-color 0.3s;
+  display: inline-block; background: linear-gradient(135deg, #2575FC, #6A11CB); color: white;
+  padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 700;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: transform 0.3s, background-color 0.3s;
 }
+.resume-btn:hover { transform: scale(1.05); }
 
-.resume-btn:hover {
-  background-color: #6a11cb;
-  transform: scale(1.05);
-}
-
-/* ====== Lists Styling ====== */
-ul {
-  list-style-type: disc;
-  padding-left: 20px;
-}
-
-li {
-  margin-bottom: 10px;
-}
+/* ====== Lists ====== */
+ul { list-style-type: disc; padding-left: 20px; }
+li { margin-bottom: 10px; }
 
 /* ====== Skills ====== */
-.skills {
-  margin-top: 20px;
-}
-
-.skill {
-  margin-bottom: 15px;
-}
-
-.skill p {
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-
-.skill-bar {
-  background-color: #e0e0e0;
-  border-radius: 10px;
-  overflow: hidden;
-  height: 15px;
-}
-
+.skills { margin-top: 20px; }
+.skill { margin-bottom: 15px; }
+.skill p { font-weight: 600; margin-bottom: 5px; }
+.skill-bar { background-color: #e0e0e0; border-radius: 10px; overflow: hidden; height: 15px; }
 .skill-bar span {
-  display: block;
-  height: 100%;
-  background-color: #2575fc;
-  width: 0;
-  border-radius: 10px;
+  display: block; height: 100%; background-color: #2575FC; width: 0; border-radius: 10px;
   animation: fillBar 2s forwards;
 }
-
-@keyframes fillBar {
-  to { width: var(--width); }
-}
+@keyframes fillBar { to { width: var(--width); } }
 
 /* ====== Project Carousel ====== */
-.project-carousel {
-  display: flex;
-  overflow-x: auto;
-  gap: 15px;
-  padding-bottom: 10px;
-  scroll-behavior: smooth;
-}
+.project-carousel { display: flex; overflow-x: auto; gap: 15px; padding-bottom: 10px; scroll-behavior: smooth; scroll-snap-type: x mandatory; }
+.carousel-slide { min-width: 300px; background-color: white; border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+flex-shrink: 0; text-align: center; padding: 10px; transition: transform 0.3s, box-shadow 0.3s; scroll-snap-align: start; }
+.carousel-slide img { width: 100%; border-radius: 8px; margin-bottom: 10px; transition: transform 0.4s ease-in-out; }
+.carousel-slide:hover img { transform: scale(1.05); }
+.carousel-slide:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
 
-.carousel-slide {
-  min-width: 300px;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-  flex-shrink: 0;
-  text-align: center;
-  padding: 10px;
-  transition: transform 0.3s, box-shadow 0.3s;
+/* ====== Metrics / Achievements ====== */
+.metrics-container { display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 30px; gap: 20px; }
+.metric {
+  background-color: #fff; border-radius: 12px; padding: 25px 20px; text-align: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1); flex: 1 1 200px; transition: transform 0.3s, box-shadow 0.3s;
 }
-
-.carousel-slide img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.carousel-slide:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
+.metric:hover { transform: translateY(-8px); box-shadow: 0 15px 25px rgba(37,117,252,0.3); }
+.metric h3 { font-size: 2rem; color: #2575FC; margin-bottom: 10px; font-weight: 700; }
+.metric p { font-size: 1rem; color: #555; }
 
 /* ====== Contact Form ====== */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 20px;
+.contact-form { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+.contact-form input, .contact-form textarea {
+  padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;
 }
-
-.contact-form input,
-.contact-form textarea {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-}
-
 .contact-form button {
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  background-color: #2575fc;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.3s, background-color 0.3s;
+  padding: 12px; border: none; border-radius: 8px; background-color: #2575FC; color: white;
+  font-weight: 600; cursor: pointer; transition: transform 0.3s, background-color 0.3s;
 }
+.contact-form button:hover { background-color: #6A11CB; transform: scale(1.05); }
 
-.contact-form button:hover {
-  background-color: #6a11cb;
-  transform: scale(1.05);
-}
-
-/* ====== Contact Links ====== */
-a {
-  color: #2575fc;
-}
-
-a:hover {
-  text-decoration: underline;
-}
+/* ====== Links ====== */
+a { color: #2575FC; }
+a:hover { text-decoration: underline; }
 
 /* ====== Footer ====== */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #2575fc;
-  color: white;
-  font-weight: 500;
-}
+footer { text-align: center; padding: 20px; background-color: #2575FC; color: white; font-weight: 500; }
 
 /* ====== Fade-in Animation ====== */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s forwards;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+.fade-in { opacity: 0; transform: translateY(20px); animation: fadeInUp 1.2s forwards; }
+@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
 
 /* ====== Responsive ====== */
 @media (max-width: 768px) {
-  header h1 {
-    font-size: 2rem;
-  }
-
-  header p {
-    font-size: 1rem;
-  }
-
-  .navbar a {
-    display: block;
-    margin: 10px 0;
-  }
-
-  .section {
-    padding: 40px 15px;
-  }
-
-  .project-carousel {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .carousel-slide {
-    min-width: 90%;
-  }
+  header h1 { font-size: 2rem; }
+  header p { font-size: 1rem; }
+  .navbar a { display: block; margin: 10px 0; }
+  .section { padding: 40px 15px; }
+  .project-carousel { flex-direction: column; align-items: center; }
+  .carousel-slide { min-width: 90%; }
 }
