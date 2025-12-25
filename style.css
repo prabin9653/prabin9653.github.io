@@ -111,4 +111,41 @@ footer { text-align: center; padding: 20px; background-color: #2575FC; color: wh
   opacity: 1;
   transform: translateY(0);
 }
+.testimonial-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  scroll-snap-type: x mandatory;
+  padding: 20px 0;
+}
+
+.testimonial {
+  flex: 0 0 300px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  scroll-snap-align: start;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.testimonial:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.testimonial p {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.testimonial h4 {
+  text-align: right;
+  font-weight: 600;
+  color: #2575FC;
+}
+.resume-btn:hover, .contact-form button:hover {
+  box-shadow: 0 8px 20px rgba(37,117,252,0.4);
+}
+
 
