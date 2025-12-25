@@ -49,17 +49,26 @@
   <!-- Skills Section -->
   <section id="skills" class="section fade-in">
     <h2>Core Skills</h2>
-    <div class="card">
-      <ul>
-        <li>Search Engine Optimization (SEO & GEO)</li>
-        <li>Content Strategy & Copywriting</li>
-        <li>Social Media Marketing (Organic & Paid)</li>
-        <li>Google Analytics & Search Console</li>
-        <li>Email Marketing</li>
-        <li>Keyword Research & Competitor Analysis</li>
-        <li>Conversion Rate Optimization (CRO)</li>
-      </ul>
+
+    <div class="skills">
+      <div class="skill">
+        <p>SEO & GEO</p>
+        <div class="skill-bar"><span style="width: 90%;"></span></div>
+      </div>
+      <div class="skill">
+        <p>Content Strategy</p>
+        <div class="skill-bar"><span style="width: 85%;"></span></div>
+      </div>
+      <div class="skill">
+        <p>Social Media Marketing</p>
+        <div class="skill-bar"><span style="width: 80%;"></span></div>
+      </div>
+      <div class="skill">
+        <p>Conversion Optimization (CRO)</p>
+        <div class="skill-bar"><span style="width: 75%;"></span></div>
+      </div>
     </div>
+
   </section>
 
   <!-- Tools Section -->
@@ -96,12 +105,19 @@
   <!-- Projects Section -->
   <section id="projects" class="section fade-in">
     <h2>Projects</h2>
-    <div class="card">
-      <ul>
-        <li>Personal SEO blog and content experiments</li>
-        <li>Social media growth strategies for educational content</li>
-        <li>Website optimization for search visibility and UX</li>
-      </ul>
+    <div class="project-carousel">
+      <div class="carousel-slide">
+        <img src="project1.png" alt="SEO blog project">
+        <p>SEO blog and content experiments</p>
+      </div>
+      <div class="carousel-slide">
+        <img src="project2.png" alt="Social media growth strategy">
+        <p>Social media growth strategies for educational content</p>
+      </div>
+      <div class="carousel-slide">
+        <img src="project3.png" alt="Website UX optimization">
+        <p>Website optimization for search visibility and UX</p>
+      </div>
     </div>
   </section>
 
@@ -112,6 +128,14 @@
       <p>Email: <a href="mailto:yourname@email.com">yourname@email.com</a></p>
       <p>LinkedIn: <a href="#" target="_blank">linkedin.com/in/yourprofile</a></p>
     </div>
+
+    <form class="contact-form" action="mailto:yourname@email.com" method="POST" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
   </section>
 
 </main>
@@ -120,16 +144,26 @@
   © 2025 Prabin Neupane
 </footer>
 
-<!-- Smooth scrolling JS -->
+<!-- Smooth scrolling and skill bar animation -->
 <script>
+  // Smooth Scroll
   const links = document.querySelectorAll('nav a');
-  for (const link of links) {
-    link.addEventListener('click', (e) => {
+  links.forEach(link => {
+    link.addEventListener('click', e => {
       e.preventDefault();
       const target = document.querySelector(link.getAttribute('href'));
       target.scrollIntoView({ behavior: 'smooth' });
     });
-  }
+  });
+
+  // Animate skill bars
+  document.querySelectorAll('.skill-bar span').forEach(bar => {
+    const width = bar.style.width;
+    bar.style.width = '0';
+    setTimeout(() => {
+      bar.style.width = width;
+    }, 500);
+  });
 </script>
 
 </body>
