@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Prabin Neupane | Digital Marketing Portfolio. SEO, Content Marketing, Social Media, Growth Strategy.">
   <link rel="stylesheet" href="style.css">
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -22,6 +21,7 @@
     <a href="#tools">Tools</a>
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
+    <a href="#metrics">Metrics</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
@@ -49,7 +49,6 @@
   <!-- Skills Section -->
   <section id="skills" class="section fade-in">
     <h2>Core Skills</h2>
-
     <div class="skills">
       <div class="skill">
         <p>SEO & GEO</p>
@@ -68,7 +67,6 @@
         <div class="skill-bar"><span style="width: 75%;"></span></div>
       </div>
     </div>
-
   </section>
 
   <!-- Tools Section -->
@@ -121,6 +119,29 @@
     </div>
   </section>
 
+  <!-- Metrics Section -->
+  <section id="metrics" class="section fade-in">
+    <h2>Key Achievements</h2>
+    <div class="metrics-container">
+      <div class="metric">
+        <h3><span class="counter" data-target="35">0</span>%</h3>
+        <p>Increase in Organic Traffic</p>
+      </div>
+      <div class="metric">
+        <h3><span class="counter" data-target="1200">0</span>+</h3>
+        <p>Social Media Followers Gained</p>
+      </div>
+      <div class="metric">
+        <h3><span class="counter" data-target="50">0</span>%</h3>
+        <p>Campaign Conversion Rate</p>
+      </div>
+      <div class="metric">
+        <h3><span class="counter" data-target="15">0</span>+</h3>
+        <p>Successful Digital Campaigns</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact Section -->
   <section id="contact" class="section fade-in">
     <h2>Contact</h2>
@@ -135,7 +156,6 @@
       <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
       <button type="submit">Send Message</button>
     </form>
-
   </section>
 
 </main>
@@ -144,7 +164,7 @@
   © 2025 Prabin Neupane
 </footer>
 
-<!-- Smooth scrolling and skill bar animation -->
+<!-- Scripts -->
 <script>
   // Smooth Scroll
   const links = document.querySelectorAll('nav a');
@@ -163,6 +183,23 @@
     setTimeout(() => {
       bar.style.width = width;
     }, 500);
+  });
+
+  // Animated Counters
+  const counters = document.querySelectorAll('.counter');
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const increment = target / 100;
+      if (count < target) {
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(updateCount, 20);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCount();
   });
 </script>
 
