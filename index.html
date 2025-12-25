@@ -132,5 +132,26 @@
 <footer>© 2025 Prabin Neupane</footer>
 
 <script src="script.js"></script>
+  <script>
+  // Scroll Reveal Animation
+  const sections = document.querySelectorAll('.section');
+  const revealSection = (entries, observer) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+  
+  const observer = new IntersectionObserver(revealSection, {
+    threshold: 0.2
+  });
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
 </body>
 </html>
