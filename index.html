@@ -539,35 +539,144 @@
         height: 160px;
     }
 }
-
-     </style>
-    <style>
-/* Root variables for themes */
+           /* Root variables for LIGHT mode */
 :root {
     --bg-primary: #ffffff;
-    --bg-secondary: #f5f5f5;
-    --text-primary: #333333;
-    --text-secondary: #666666;
+    --bg-secondary: #f8f9fa;
+    --bg-tertiary: #e9ecef;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --text-muted: #adb5bd;
     --accent-color: #007bff;
-    --border-color: #e0e0e0;
-    --shadow: rgba(0, 0, 0, 0.1);
+    --accent-hover: #0056b3;
+    --border-color: #dee2e6;
+    --shadow-sm: rgba(0, 0, 0, 0.075);
+    --shadow-md: rgba(0, 0, 0, 0.15);
+    --shadow-lg: rgba(0, 0, 0, 0.25);
+    --card-bg: #ffffff;
+    --nav-bg: #ffffff;
+    --footer-bg: #f8f9fa;
 }
 
+/* DARK mode variables (default) */
 [data-theme="dark"] {
-    --bg-primary: #1a1a1a;
-    --bg-secondary: #2d2d2d;
-    --text-primary: #ffffff;
-    --text-secondary: #b0b0b0;
-    --accent-color: #4a9eff;
-    --border-color: #404040;
-    --shadow: rgba(0, 0, 0, 0.3);
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --bg-tertiary: #1f2937;
+    --text-primary: #e6edf3;
+    --text-secondary: #9198a1;
+    --text-muted: #6e7681;
+    --accent-color: #58a6ff;
+    --accent-hover: #79c0ff;
+    --border-color: #30363d;
+    --shadow-sm: rgba(0, 0, 0, 0.3);
+    --shadow-md: rgba(0, 0, 0, 0.5);
+    --shadow-lg: rgba(0, 0, 0, 0.7);
+    --card-bg: #161b22;
+    --nav-bg: #0d1117;
+    --footer-bg: #0d1117;
 }
 
-/* Apply theme colors */
+/* Apply theme to entire website */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
 body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation */
+nav {
+    background-color: var(--nav-bg);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px var(--shadow-sm);
+}
+
+nav a {
+    color: var(--text-primary);
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* Sections */
+section {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+/* Alternate section backgrounds */
+section:nth-child(even) {
+    background-color: var(--bg-secondary);
+}
+
+/* Cards, containers, boxes */
+.card, .project-card, .skill-card, .certificate-card, .experience-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px var(--shadow-md);
+    color: var(--text-primary);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+}
+
+/* Paragraphs and text */
+p, li, span {
+    color: var(--text-secondary);
+}
+
+/* Links */
+a {
+    color: var(--accent-color);
+}
+
+a:hover {
+    color: var(--accent-hover);
+}
+
+/* Buttons */
+button, .btn {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border: 1px solid var(--border-color);
+}
+
+button:hover, .btn:hover {
+    background-color: var(--accent-hover);
+}
+
+/* Forms */
+input, textarea, select {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+/* Footer */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-color);
+}
+
+/* Code blocks (if you have any) */
+pre, code {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
 }
 
 /* Theme toggle button styles */
@@ -634,7 +743,8 @@ body {
         margin: 10px auto;
     }
 }
-</style>
+
+     </style>
 
 </head>
 <body>
@@ -931,9 +1041,8 @@ body {
                 navMenu.classList.remove('active');
             }
         });
-    </script>
-    <script>
-// Theme toggle functionality
+
+         // Theme toggle functionality
 const themeToggle = document.getElementById('themeToggle');
 const htmlElement = document.documentElement;
 
@@ -958,7 +1067,8 @@ menuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
     menuToggle.classList.toggle('active');
 });
-</script>
+    </script>
+   
 
      <footer>
         <p>&copy; 2025 Prabin Neupane - Digital Marketing Expert. All rights reserved.</p>
@@ -966,6 +1076,7 @@ menuToggle.addEventListener('click', () => {
 </body>
 
 </html>
+
 
 
 
