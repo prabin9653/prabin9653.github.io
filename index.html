@@ -539,210 +539,6 @@
         height: 160px;
     }
 }
-           /* Root variables for LIGHT mode */
-:root {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f8f9fa;
-    --bg-tertiary: #e9ecef;
-    --text-primary: #212529;
-    --text-secondary: #6c757d;
-    --text-muted: #adb5bd;
-    --accent-color: #007bff;
-    --accent-hover: #0056b3;
-    --border-color: #dee2e6;
-    --shadow-sm: rgba(0, 0, 0, 0.075);
-    --shadow-md: rgba(0, 0, 0, 0.15);
-    --shadow-lg: rgba(0, 0, 0, 0.25);
-    --card-bg: #ffffff;
-    --nav-bg: #ffffff;
-    --footer-bg: #f8f9fa;
-}
-
-/* DARK mode variables (default) */
-[data-theme="dark"] {
-    --bg-primary: #0d1117;
-    --bg-secondary: #161b22;
-    --bg-tertiary: #1f2937;
-    --text-primary: #e6edf3;
-    --text-secondary: #9198a1;
-    --text-muted: #6e7681;
-    --accent-color: #58a6ff;
-    --accent-hover: #79c0ff;
-    --border-color: #30363d;
-    --shadow-sm: rgba(0, 0, 0, 0.3);
-    --shadow-md: rgba(0, 0, 0, 0.5);
-    --shadow-lg: rgba(0, 0, 0, 0.7);
-    --card-bg: #161b22;
-    --nav-bg: #0d1117;
-    --footer-bg: #0d1117;
-}
-
-/* Apply theme to entire website */
-* {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-body {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    margin: 0;
-    padding: 0;
-}
-
-/* Navigation */
-nav {
-    background-color: var(--nav-bg);
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 2px 4px var(--shadow-sm);
-}
-
-nav a {
-    color: var(--text-primary);
-}
-
-nav a:hover {
-    color: var(--accent-color);
-}
-
-/* Sections */
-section {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-}
-
-/* Alternate section backgrounds */
-section:nth-child(even) {
-    background-color: var(--bg-secondary);
-}
-
-/* Cards, containers, boxes */
-.card, .project-card, .skill-card, .certificate-card, .experience-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    box-shadow: 0 4px 6px var(--shadow-md);
-    color: var(--text-primary);
-}
-
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-    color: var(--text-primary);
-}
-
-/* Paragraphs and text */
-p, li, span {
-    color: var(--text-secondary);
-}
-
-/* Links */
-a {
-    color: var(--accent-color);
-}
-
-a:hover {
-    color: var(--accent-hover);
-}
-
-/* Buttons */
-button, .btn {
-    background-color: var(--accent-color);
-    color: #ffffff;
-    border: 1px solid var(--border-color);
-}
-
-button:hover, .btn:hover {
-    background-color: var(--accent-hover);
-}
-
-/* Forms */
-input, textarea, select {
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
-}
-
-input:focus, textarea:focus, select:focus {
-    border-color: var(--accent-color);
-    outline: none;
-}
-
-/* Footer */
-footer {
-    background-color: var(--footer-bg);
-    color: var(--text-secondary);
-    border-top: 1px solid var(--border-color);
-}
-
-/* Code blocks (if you have any) */
-pre, code {
-    background-color: var(--bg-tertiary);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
-}
-
-/* Theme toggle button styles */
-.theme-toggle {
-    background: transparent;
-    border: 2px solid var(--border-color);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    padding: 0;
-}
-
-.theme-toggle:hover {
-    border-color: var(--accent-color);
-    transform: rotate(180deg);
-}
-
-.theme-toggle svg {
-    position: absolute;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    color: var(--text-primary);
-}
-
-/* Show moon icon in dark mode (default) */
-[data-theme="dark"] .sun-icon {
-    opacity: 0;
-    transform: rotate(180deg) scale(0);
-}
-
-[data-theme="dark"] .moon-icon {
-    opacity: 1;
-    transform: rotate(0deg) scale(1);
-}
-
-/* Show sun icon in light mode */
-[data-theme="light"] .sun-icon {
-    opacity: 1;
-    transform: rotate(0deg) scale(1);
-}
-
-[data-theme="light"] .moon-icon {
-    opacity: 0;
-    transform: rotate(-180deg) scale(0);
-}
-
-/* Navigation item styling */
-.theme-toggle-item {
-    list-style: none;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .theme-toggle-item {
-        margin-left: 0;
-    }
-    
-    .theme-toggle {
-        margin: 10px auto;
-    }
-}
 
      </style>
 
@@ -757,6 +553,7 @@ pre, code {
             <span></span>
             <span></span>
         </div>
+
         <ul class="nav-menu" id="navMenu">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -764,25 +561,6 @@ pre, code {
             <li><a href="#experience">Experience</a></li>
             <li><a href="#certificates">Certificates</a></li>
             <li><a href="#contact">Contact</a></li>
-            <!-- Theme Toggle Button -->
-            <li class="theme-toggle-item">
-                <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
-                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                </button>
-            </li>
         </ul>
     </div>
 </nav>
@@ -1041,50 +819,6 @@ pre, code {
                 navMenu.classList.remove('active');
             }
         });
-
-// Wait for DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    const themeToggle = document.getElementById('themeToggle');
-    const htmlElement = document.documentElement;
-    const bodyElement = document.body;
-
-    // Set dark mode as default on first load
-    if (!htmlElement.getAttribute('data-theme')) {
-        htmlElement.setAttribute('data-theme', 'dark');
-        bodyElement.setAttribute('data-theme', 'dark');
-    }
-
-    // Toggle theme function
-    function toggleTheme() {
-        const currentTheme = htmlElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
-        console.log('Switching from', currentTheme, 'to', newTheme); // Debug log
-        
-        htmlElement.setAttribute('data-theme', newTheme);
-        bodyElement.setAttribute('data-theme', newTheme);
-    }
-
-    // Add click event listener
-    if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
-        console.log('Theme toggle button initialized'); // Debug log
-    } else {
-        console.error('Theme toggle button not found!'); // Debug log
-    }
-
-    // Your existing menu toggle code
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-        });
-    }
-});
-    </script>
    
 
      <footer>
@@ -1093,6 +827,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </body>
 
 </html>
+
 
 
 
