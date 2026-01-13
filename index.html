@@ -183,6 +183,30 @@
             color: var(--primary);
         }
 
+        @media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .nav-links.active {
+    max-height: 400px;
+  }
+  .nav-links li {
+    text-align: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -288,6 +312,28 @@
             justify-content: center;
             align-items: center;
         }
+
+    @media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-visual {
+    margin-top: 2rem;
+  }
+}
+@media (max-width: 480px) {
+  .certificates-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .contact-info {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
 
         /* Hero Profile Section */
         .profile-container {
@@ -513,8 +559,10 @@
         }
 
         .experience {
-            background: #f8f9fa;
-        }
+  background: var(--card);
+  transition: var(--transition);
+}
+
 
         .experience-timeline {
             max-width: 900px;
@@ -821,6 +869,7 @@
         <div class="container">
             <div class="nav-content">
                 <div class="logo">Prabin Neupane</div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>               
                 <ul class="nav-links">
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -1190,28 +1239,6 @@
             observer.observe(el);
         });
 
-     
-
-                  
-            
-
-        // Glassmorphism click effect
-        function createGlassEffect(e) {
-            const glass = document.createElement('div');
-            glass.className = 'glass-effect';
-            
-            const size = 60;
-            glass.style.width = size + 'px';
-            glass.style.height = size + 'px';
-            glass.style.left = (e.clientX - size/2) + 'px';
-            glass.style.top = (e.clientY - size/2) + 'px';
-            
-            document.body.appendChild(glass);
-            
-            setTimeout(() => glass.classList.add('active'), 10);
-            setTimeout(() => glass.remove(), 800);
-        }
-
         // Track CV download (simplified)
         function trackDownload(event) {
             createGlassEffect(event);
@@ -1388,6 +1415,7 @@
 </body>
 
 </html>
+
 
 
 
