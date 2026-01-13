@@ -183,30 +183,7 @@
             color: var(--primary);
         }
 
-        @media (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--bg);
-    flex-direction: column;
-    gap: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-  .nav-links.active {
-    max-height: 400px;
-  }
-  .nav-links li {
-    text-align: center;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-
+ 
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -868,8 +845,7 @@
    <nav>
         <div class="container">
             <div class="nav-content">
-                <div class="logo">Prabin Neupane</div>
-                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>               
+                <div class="logo">Prabin Neupane</div>           
                 <ul class="nav-links">
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -1171,7 +1147,7 @@
      <footer>
         <p>&copy; 2025 Prabin Neupane - Digital Marketing Expert. All rights reserved.</p>
     </footer>
-     <script>
+    <script>
         // Theme Toggle
         function toggleTheme() {
             const body = document.body;
@@ -1193,7 +1169,7 @@
             const navLinks = document.querySelector('.nav-links');
             navLinks.classList.toggle('active');
         }
-         
+
         // Load saved theme
         document.addEventListener('DOMContentLoaded', function() {
             const savedTheme = localStorage.getItem('theme') || 'light';
@@ -1220,8 +1196,9 @@
                 }
             });
         });
+
         // Fade in animation on scroll
-       const observerOptions = {
+        const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
@@ -1238,6 +1215,63 @@
             observer.observe(el);
         });
 
+        // Loading screen
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loading');
+            setTimeout(() => {
+                loading.classList.add('hidden');
+            }, 1000);
+        });
+
+        // Form submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            createGlassEffect(event);
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Show loading state
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            try {
+                // Simulate email sending (replace with actual EmailJS implementation)
+                simulateEmailSend(data);
+                
+                // Show success message
+                showNotification('✅ Thank you for your message! I\'ll get back to you soon.', 'success');
+                event.target.reset();
+                
+            } catch (error) {
+                console.error('Email send failed:', error);
+                showNotification('❌ Sorry, there was an error sending your message. Please try again or contact me directly.', 'error');
+            } finally {
+                // Reset button state
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        }
+
+        // Glassmorphism click effect
+        function createGlassEffect(e) {
+            const glass = document.createElement('div');
+            glass.className = 'glass-effect';
+            
+            const size = 60;
+            glass.style.width = size + 'px';
+            glass.style.height = size + 'px';
+            glass.style.left = (e.clientX - size/2) + 'px';
+            glass.style.top = (e.clientY - size/2) + 'px';
+            
+            document.body.appendChild(glass);
+            
+            setTimeout(() => glass.classList.add('active'), 10);
+            setTimeout(() => glass.remove(), 800);
+        }
+
         // Track CV download (simplified)
         function trackDownload(event) {
             createGlassEffect(event);
@@ -1252,7 +1286,29 @@
         }
 
         // Show notification function
-        function showNotification(message, type = 'info') { const notification = document.createElement('div'); notification.className = `notification ${type}`; notification.textContent = message; document.body.appendChild(notification); setTimeout(() => notification.classList.add('active'), 10); setTimeout(() => { notification.classList.remove('active'); setTimeout(() => notification.remove(), 300); }, 4000); }
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? 'linear-gradient(135deg, #10b981, #059669)' : 
+                          type === 'error' ? 'linear-gradient(135deg, #ef4444, #dc2626)' : 
+                          'linear-gradient(135deg, var(--primary), var(--accent))'};
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                z-index: 10000;
+                font-weight: 600;
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255,255,255,0.2);
+                transform: translateX(400px);
+                transition: transform 0.3s ease;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            `;
             
             // Add icon based on type
             const icon = document.createElement('span');
@@ -1281,7 +1337,40 @@
             }, 4000);
         }
 
-                 
+        // Handle profile image loading
+        document.addEventListener('DOMContentLoaded', function() {
+            const profileImg = document.getElementById('profileImg');
+            if (profileImg) {
+                // Add loading state
+                profileImg.style.opacity = '0';
+                profileImg.style.transition = 'opacity 0.5s ease';
+                
+                profileImg.onload = function() {
+                    this.style.opacity = '1';
+                };
+                
+                profileImg.onerror = function() {
+                    // Create elegant fallback
+                    const placeholder = document.createElement('div');
+                    placeholder.style.cssText = `
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(135deg, var(--primary), var(--accent));
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 4rem;
+                        color: white;
+                        font-weight: 800;
+                        border-radius: 50%;
+                    `;
+                    placeholder.textContent = 'PN';
+                    
+                    this.parentNode.replaceChild(placeholder, this);
+                    console.log('Profile image not found, using placeholder');
+                };
+            }
+            
             // Test CV file availability
             fetch('documentation/prabincv.pdf', { method: 'HEAD' })
                 .then(response => {
@@ -1303,7 +1392,46 @@
                 });
         });
 
-           
+        // Simulate email sending
+        function simulateEmailSend(data) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    // Simulate successful email send
+                    console.log('Email data:', data);
+                    
+                    // Create mailto link as fallback
+                    const subject = encodeURIComponent(data.subject || 'Portfolio Contact');
+                    const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`);
+                    const mailtoLink = `mailto:prabin.neupane.work@gmail.com?subject=${subject}&body=${body}`;
+                    
+                    // Open default email client
+                    window.open(mailtoLink);
+                    
+                    resolve('Email sent successfully');
+                }, 1000);
+            });
+        }
+
+        // Enhanced skill animations
+        const skillObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Animate proficiency bars
+                    const proficiencyBars = entry.target.querySelectorAll('.proficiency-fill');
+                    proficiencyBars.forEach((bar, index) => {
+                        setTimeout(() => {
+                            bar.style.width = bar.style.getPropertyValue('--proficiency');
+                        }, index * 200);
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.skill-category').forEach(el => {
+            skillObserver.observe(el);
+        });
 
         // Open external links
         function openLink(url) {
@@ -1329,7 +1457,24 @@
             }
         });
 
-        
+        // Add scroll progress indicator
+        const progressBar = document.createElement('div');
+        progressBar.style.position = 'fixed';
+        progressBar.style.top = '0';
+        progressBar.style.left = '0';
+        progressBar.style.width = '0%';
+        progressBar.style.height = '3px';
+        progressBar.style.backgroundColor = 'var(--primary)';
+        progressBar.style.zIndex = '9999';
+        progressBar.style.transition = 'width 0.25s ease';
+        document.body.appendChild(progressBar);
+
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + '%';
+        });
 
         // Add structured data for SEO
         const structuredData = {
@@ -1359,6 +1504,7 @@
 </body>
 
 </html>
+
 
 
 
