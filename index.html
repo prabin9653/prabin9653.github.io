@@ -31,6 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+Devanagari:wght@300;400&display=swap" rel="stylesheet" />
+
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <!-- ═══ STRUCTURED DATA (JSON-LD) — for Google Rich Results & AI answer engines (ChatGPT, Gemini, Perplexity, AI Overviews) ═══ -->
@@ -433,6 +434,123 @@ footer{background:var(--navy);padding:1.75rem 2.75rem;display:flex;align-items:c
 .hero-inner>*:nth-child(2){animation-delay:.1s}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 
+
+/* ═══════════════ MODERN 2026 LAYER ═══════════════ */
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(circle at 10% 10%, rgba(18,124,87,.07), transparent 25rem),
+    radial-gradient(circle at 90% 35%, rgba(225,90,44,.05), transparent 24rem),
+    var(--paper);
+}
+nav{
+  background:rgba(8,20,31,.72);
+  backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+  box-shadow:0 10px 40px rgba(0,0,0,.08);
+}
+.nav-logo{letter-spacing:-.02em}
+.nav-logo .dot{box-shadow:0 0 0 5px rgba(18,124,87,.12),0 0 18px rgba(18,124,87,.65);animation:pulseDot 2.4s infinite}
+@keyframes pulseDot{50%{box-shadow:0 0 0 9px rgba(18,124,87,.03),0 0 24px rgba(18,124,87,.9)}}
+#hero{
+  background:
+    radial-gradient(circle at 80% 25%, rgba(18,124,87,.18), transparent 23rem),
+    radial-gradient(circle at 20% 100%, rgba(225,90,44,.10), transparent 25rem),
+    var(--navy);
+}
+#hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;
+  background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
+  background-size:56px 56px;mask-image:linear-gradient(to bottom,black,transparent 85%);
+}
+.hero-inner{position:relative;z-index:1}
+.hero-name{letter-spacing:-.045em}
+.hero-desc{font-size:1.04rem}
+.btn{position:relative;overflow:hidden;transform:translateZ(0)}
+.btn::after,.bsub::after{
+  content:"";position:absolute;inset:0;transform:translateX(-110%);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);
+  transition:transform .55s ease;
+}
+.btn:hover::after,.bsub:hover::after{transform:translateX(110%)}
+.btn-primary,.bsub{box-shadow:0 10px 30px rgba(225,90,44,.18)}
+.hviz{
+  box-shadow:0 25px 80px rgba(0,0,0,.24);
+  animation:floatCard 6s ease-in-out infinite;
+}
+@keyframes floatCard{50%{transform:translateY(-8px)}}
+.hviz-bar{transition:height 1s cubic-bezier(.2,.8,.2,1)}
+.si{position:relative}
+.sh{position:relative}
+.s-kicker{letter-spacing:.08em;text-transform:uppercase;font-size:.72rem}
+.s2{letter-spacing:-.035em}
+.sk,.csc,.ci,.fqi,.tlcard,.lis-card{
+  transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
+}
+.sk:hover,.lis-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 18px 45px rgba(16,24,31,.08);
+}
+.csc:hover,.tlcard:hover{
+  box-shadow:0 18px 55px rgba(0,0,0,.16);
+  border-color:rgba(18,124,87,.28);
+}
+.tlcard{position:relative;overflow:hidden}
+.tlcard::before{
+  content:"";position:absolute;left:0;top:0;width:3px;height:100%;
+  background:linear-gradient(var(--green),var(--ember));transform:scaleY(0);transform-origin:top;transition:transform .5s ease;
+}
+.tli:hover .tlcard::before{transform:scaleY(1)}
+/* Lead Intelligence */
+.lis-section{background:#0a1a27;color:#fff;position:relative;overflow:hidden}
+.lis-section::before{
+  content:"";position:absolute;width:34rem;height:34rem;border-radius:50%;
+  background:rgba(18,124,87,.14);filter:blur(70px);right:-12rem;top:-10rem;
+}
+.lis-section .si{position:relative;z-index:1}
+.lis-hero{
+  display:grid;grid-template-columns:1fr 1.15fr;gap:2rem;align-items:stretch;
+  background:linear-gradient(135deg,rgba(255,255,255,.055),rgba(255,255,255,.025));
+  border:1px solid rgba(255,255,255,.10);border-radius:22px;padding:2rem;
+  box-shadow:0 30px 90px rgba(0,0,0,.18);
+}
+.lis-badge{
+  display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(95,199,154,.24);
+  background:rgba(18,124,87,.12);color:#78d9ad;border-radius:99px;padding:.4rem .75rem;
+  font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;
+}
+.lis-badge span{width:6px;height:6px;border-radius:50%;background:#5fc79a;box-shadow:0 0 12px #5fc79a}
+.lis-copy h3{font-size:clamp(1.65rem,3vw,2.5rem);line-height:1.08;margin:1rem 0}
+.lis-copy p{color:rgba(240,242,238,.68);line-height:1.8;max-width:58ch}
+.lis-tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.4rem}
+.lis-tags span{font-size:.68rem;padding:.35rem .62rem;border:1px solid rgba(255,255,255,.1);border-radius:99px;color:rgba(255,255,255,.7)}
+.lis-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:center;gap:.65rem;padding:1.2rem;background:rgba(0,0,0,.13);border-radius:16px}
+.flow-node{min-height:125px;padding:1rem;border:1px solid rgba(255,255,255,.08);border-radius:13px;background:rgba(255,255,255,.035);display:flex;flex-direction:column;justify-content:center}
+.flow-node b{font-size:.65rem;color:#5fc79a;margin-bottom:.55rem}
+.flow-node span{font-family:var(--font-d);font-weight:600;font-size:.86rem}
+.flow-node small{color:rgba(255,255,255,.42);font-size:.66rem;margin-top:.25rem}
+.flow-node.active{border-color:rgba(95,199,154,.4);background:rgba(18,124,87,.13);box-shadow:inset 0 0 35px rgba(18,124,87,.08)}
+.flow-line{height:1px;background:linear-gradient(90deg,rgba(95,199,154,.15),rgba(95,199,154,.8),rgba(95,199,154,.15));position:relative}
+.flow-line::after{content:"›";position:absolute;right:-2px;top:-11px;color:#5fc79a}
+.lis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
+.lis-card{padding:1.4rem;border:1px solid rgba(255,255,255,.09);border-radius:16px;background:rgba(255,255,255,.035)}
+.lis-card h4{font-family:var(--font-d);font-size:1rem;margin:.6rem 0}
+.lis-card p{font-size:.82rem;line-height:1.7;color:rgba(240,242,238,.58)}
+.lis-num{font-family:var(--font-d);font-size:.68rem;color:#5fc79a}
+.lis-metrics{display:grid;grid-template-columns:repeat(4,1fr);margin-top:1rem;border:1px solid rgba(255,255,255,.09);border-radius:16px;overflow:hidden}
+.lis-metrics>div{padding:1.1rem 1.2rem;background:rgba(255,255,255,.025);border-right:1px solid rgba(255,255,255,.08)}
+.lis-metrics>div:last-child{border-right:none}
+.lis-metrics strong{display:block;font-family:var(--font-d);font-size:1.35rem}
+.lis-metrics span{display:block;color:rgba(255,255,255,.42);font-size:.67rem;margin-top:.2rem}
+.hp{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;opacity:0!important}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.reveal.is-visible{opacity:1;transform:none}
+.reveal:nth-child(2){transition-delay:.08s}.reveal:nth-child(3){transition-delay:.16s}
+@media(prefers-reduced-motion:reduce){
+  .hviz,.nav-logo .dot{animation:none!important}
+  .reveal{opacity:1!important;transform:none!important;transition:none!important}
+}
+
 /* ═══════════════ RESPONSIVE ═══════════════ */
 @media(max-width:960px){
   nav{padding:.9rem 1.25rem}
@@ -486,6 +604,25 @@ footer{background:var(--navy);padding:1.75rem 2.75rem;display:flex;align-items:c
   .cp{width:calc(100vw - 1.5rem);right:.75rem;bottom:4.5rem;max-height:80vh}
   .cm{max-height:calc(80vh - 180px)}
 }
+
+@media(max-width:960px){
+  .lis-hero{grid-template-columns:1fr}
+  .lis-grid{grid-template-columns:1fr}
+  .lis-metrics{grid-template-columns:1fr 1fr}
+  .lis-metrics>div:nth-child(2){border-right:none}
+  .lis-metrics>div{border-bottom:1px solid rgba(255,255,255,.08)}
+  .lis-metrics>div:nth-child(3),.lis-metrics>div:nth-child(4){border-bottom:none}
+  .lis-flow{grid-template-columns:1fr 1fr;gap:.7rem}
+  .flow-line{display:none}
+}
+@media(max-width:680px){
+  .lis-hero{padding:1.2rem;border-radius:16px}
+  .lis-flow{grid-template-columns:1fr}
+  .lis-metrics{grid-template-columns:1fr}
+  .lis-metrics>div{border-right:none!important;border-bottom:1px solid rgba(255,255,255,.08)!important}
+  .lis-metrics>div:last-child{border-bottom:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -496,6 +633,7 @@ footer{background:var(--navy);padding:1.75rem 2.75rem;display:flex;align-items:c
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#lead-intelligence">Lead Intelligence</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#cases">Case studies</a></li>
     <li><a href="#certs">Certifications</a></li>
@@ -513,17 +651,17 @@ footer{background:var(--navy);padding:1.75rem 2.75rem;display:flex;align-items:c
       <div class="htag"><span class="pip"></span>Based in Kathmandu, Nepal</div>
       <h1 class="hero-name">Prabin Neupane</h1>
       <div class="hero-nep">प्रविन नेउपाने</div>
-      <div class="hero-role"><span>SEO Lead</span><span>Growth Strategist</span><span>Digital Creator</span></div>
-      <p class="hero-desc">I help SMEs across the US and Australia turn traffic into revenue — technical SEO, paid media, and content strategy built on data, not guesswork.</p>
+      <div class="hero-role"><span>Digital Marketing Strategist</span><span>SEO Lead</span><span>Automation Builder</span></div>
+      <p class="hero-desc">I build measurable digital growth systems — combining SEO, paid media, content, analytics, and automation to turn attention into qualified leads and revenue.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btn btn-primary">Hire me</a>
         <a href="#cases" class="btn btn-outline">View case studies</a>
         <a href="resume/Prabin-resume.pdf" download class="btn btn-ghost">Download CV</a>
       </div>
       <div class="hero-stats">
-        <div class="hs"><div class="hs-n">2+</div><div class="hs-l">Years active</div></div>
-        <div class="hs"><div class="hs-n">10M+</div><div class="hs-l">Organic reach</div></div>
         <div class="hs"><div class="hs-n">70+</div><div class="hs-l">SEO projects</div></div>
+        <div class="hs"><div class="hs-n">10M+</div><div class="hs-l">Organic reach</div></div>
+        <div class="hs"><div class="hs-n">20+</div><div class="hs-l">Social projects</div></div>
         <div class="hs"><div class="hs-n">US/AU</div><div class="hs-l">Markets served</div></div>
       </div>
     </div>
@@ -548,7 +686,7 @@ footer{background:var(--navy);padding:1.75rem 2.75rem;display:flex;align-items:c
 </section>
 
 <!-- ABOUT -->
-<section id="about">
+<section id="about" class="reveal-section">
   <div class="si">
     <div class="sh">
       <div class="s-kicker">Who I am</div>
@@ -592,7 +730,7 @@ footer{background:var(--navy);padding:1.75rem 2.75rem;display:flex;align-items:c
 </section>
 
 <!-- SKILLS -->
-<section id="skills">
+<section id="skills" class="reveal-section">
   <div class="si">
     <div class="sh">
       <div class="s-kicker">What I do</div>
@@ -609,10 +747,56 @@ footer{background:var(--navy);padding:1.75rem 2.75rem;display:flex;align-items:c
       <div class="sk"><div class="ski">📊</div><div><div class="skn">Analytics &amp; reporting</div><div class="skd">GA4, Search Console, and custom dashboards delivering actionable insights and transparent reporting.</div></div></div>
     </div>
   </div>
+
+</section>
+
+<!-- LEAD INTELLIGENCE SYSTEM -->
+<section id="lead-intelligence" class="lis-section">
+  <div class="si">
+    <div class="sh reveal">
+      <div class="s-kicker">Building what I use</div>
+      <h2 class="s2 on-dark">Lead Intelligence System</h2>
+      <p class="s-sub">A local-first lead enrichment platform I’m building to turn raw business lists into structured, actionable prospect data.</p>
+    </div>
+
+    <div class="lis-hero reveal">
+      <div class="lis-copy">
+        <div class="lis-badge"><span></span> Product in development · 2026</div>
+        <h3>From raw business data to sales-ready intelligence.</h3>
+        <p>The system is designed to collect business details, enrich websites, normalize contact information, deduplicate records, persist results locally, and produce clean datasets for outreach workflows.</p>
+        <div class="lis-tags">
+          <span>Python</span><span>SQLite</span><span>Excel</span><span>Web enrichment</span><span>Data validation</span><span>Brevo-ready</span>
+        </div>
+      </div>
+
+      <div class="lis-flow" aria-label="Lead Intelligence workflow">
+        <div class="flow-node"><b>01</b><span>Raw Excel</span><small>Business + website</small></div>
+        <div class="flow-line"></div>
+        <div class="flow-node"><b>02</b><span>Enrichment</span><small>Contact &amp; location data</small></div>
+        <div class="flow-line"></div>
+        <div class="flow-node"><b>03</b><span>Validation</span><small>Normalize &amp; deduplicate</small></div>
+        <div class="flow-line"></div>
+        <div class="flow-node active"><b>04</b><span>Clean Leads</span><small>Ready for outreach</small></div>
+      </div>
+    </div>
+
+    <div class="lis-grid">
+      <div class="lis-card reveal"><span class="lis-num">01</span><h4>Local-first architecture</h4><p>Designed around a self-hosted Python workflow with SQLite persistence, reducing dependence on paid enrichment APIs.</p></div>
+      <div class="lis-card reveal"><span class="lis-num">02</span><h4>Quality controls</h4><p>Normalization, connection handling, robots-aware collection, deduplication, persistence checks, and automated testing are part of the architecture.</p></div>
+      <div class="lis-card reveal"><span class="lis-num">03</span><h4>Outreach integration</h4><p>The output is structured for downstream marketing workflows, including the planned Brevo integration for campaign activation.</p></div>
+    </div>
+
+    <div class="lis-metrics reveal">
+      <div><strong>767</strong><span>automated tests reported passing</span></div>
+      <div><strong>0</strong><span>network attempts in the final test run</span></div>
+      <div><strong>SQLite</strong><span>local persistence layer</span></div>
+      <div><strong>2026</strong><span>active build year</span></div>
+    </div>
+  </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience">
+<section id="experience" class="reveal-section">
   <div class="si">
     <div class="sh">
       <div class="s-kicker on-dark">Career journey</div>
@@ -626,6 +810,12 @@ footer{background:var(--navy);padding:1.75rem 2.75rem;display:flex;align-items:c
           <div class="tlco">Mobilemandu</div>
           <div class="tlro">SEO Consultant (Part Time)</div>
           <p class="tlde">Drive ecommerce growth through strategic SEO implementation and optimisation. Guide content writers in creating SEO-friendly, optimized blog content that ranks and converts. Coordinate with design and development teams on website updates and technical improvements. Build high-quality backlinks and optimize collection pages for maximum visibility and user engagement.</p>
+          <div class="tlach">
+            <div class="tlai"><div class="tlain">20K</div><div class="tlail">Clicks · 28 days</div></div>
+            <div class="tlai"><div class="tlain">1.5M</div><div class="tlail">Impressions · 28 days</div></div>
+            <div class="tlai"><div class="tlain">1.3%</div><div class="tlail">CTR · 28 days</div></div>
+            <div class="tlai"><div class="tlain">5.5</div><div class="tlail">Avg. position · 28 days</div></div>
+          </div>
           <div class="tltags">
             <span class="tltag">SEO strategy</span><span class="tltag">Ecommerce</span><span class="tltag">Content optimization</span><span class="tltag">Link building</span><span class="tltag">Collection pages</span><span class="tltag">Team coordination</span>
           </div>
@@ -667,7 +857,7 @@ footer{background:var(--navy);padding:1.75rem 2.75rem;display:flex;align-items:c
 </section>
 
 <!-- CASE STUDIES -->
-<section id="cases">
+<section id="cases" class="reveal-section">
   <div class="si">
     <div class="sh">
       <div class="s-kicker">Proof of work</div>
@@ -717,7 +907,7 @@ footer{background:var(--navy);padding:1.75rem 2.75rem;display:flex;align-items:c
 </section>
 
 <!-- CERTIFICATIONS -->
-<section id="certs">
+<section id="certs" class="reveal-section">
   <div class="si">
     <div class="sh">
       <div class="s-kicker">Qualifications</div>
@@ -762,7 +952,7 @@ footer{background:var(--navy);padding:1.75rem 2.75rem;display:flex;align-items:c
 </section>
 
 <!-- FAQ -->
-<section id="faq">
+<section id="faq" class="reveal-section">
   <div class="si">
     <div class="sh">
       <div class="s-kicker">Common questions</div>
@@ -794,7 +984,7 @@ footer{background:var(--navy);padding:1.75rem 2.75rem;display:flex;align-items:c
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
+<section id="contact" class="reveal-section">
   <div class="si">
     <div class="sh">
       <div class="s-kicker on-dark">Get in touch</div>
@@ -815,7 +1005,8 @@ footer{background:var(--navy);padding:1.75rem 2.75rem;display:flex;align-items:c
         </div>
       </div>
       <div>
-        <form class="cf" action="https://formspree.io/f/meewbbaj" method="POST" id="cform">
+        <form class="cf" action="#" method="POST" id="cform" novalidate>
+          <input type="text" name="website" id="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="fgr">
             <div class="fg">
               <label class="fl" for="fn">Full name *</label>
@@ -857,7 +1048,7 @@ footer{background:var(--navy);padding:1.75rem 2.75rem;display:flex;align-items:c
 <!-- FOOTER -->
 <footer>
   <div class="flo">Prabin Neupane · Digital Marketing</div>
-  <div class="fco">© 2025 Prabin Neupane — Kathmandu, Nepal 🇳🇵</div>
+  <div class="fco">© 2026 Prabin Neupane — Kathmandu, Nepal 🇳🇵 · Designed &amp; Developed by Prabin Neupane</div>
   <div class="fso">
     <a href="mailto:mr.binpra@gmail.com" class="fsl" title="Email">✉</a>
     <a href="https://linkedin.com" target="_blank" class="fsl" title="LinkedIn">in</a>
@@ -900,37 +1091,7 @@ footer{background:var(--navy);padding:1.75rem 2.75rem;display:flex;align-items:c
 </div>
 
 <script>
-/* ═══════════════════════════════════════════════════════════════
-   EMAILJS SETUP — replace these 3 values to activate email sending
-   1. Sign up free at https://www.emailjs.com
-   2. Create a Gmail service → note Service ID
-   3. Create a template with: {{from_name}} {{from_email}} {{phone}} {{subject}} {{message}}
-   4. Copy your Public Key from Account → API Keys
-═══════════════════════════════════════════════════════════════ */
-const EJS_KEY  = "Ysmqc1JUVDJ_mEG1B";
-const EJS_SVC  = "service_mcqglv8";
-const EJS_TPL  = "template_kye6q6g";
-const TO_EMAIL = "mr.binpra@gmail.com";
-try{ emailjs.init({publicKey: EJS_KEY}); }catch(e){}
-
-/* ─── NAV ─── */
-const ham = document.getElementById('hamburger');
-const nav = document.getElementById('navLinks');
-ham.addEventListener('click',()=>{ nav.classList.toggle('open'); ham.classList.toggle('open'); });
-nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ nav.classList.remove('open'); ham.classList.remove('open'); }));
-window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50));
-
-/* ─── IMAGE FALLBACK ─── */
-const aImgEl=document.getElementById('aImg');
-if(aImgEl) aImgEl.onerror=function(){this.style.display='none';};
-
-/* ─── CERT ACCORDION ─── */
-function tCert(head){head.closest('.ci').classList.toggle('open');}
-
-/* ─── FAQ ACCORDION ─── */
-function tFaq(head){head.closest('.fqi').classList.toggle('open');}
-
-/* ─── FORM VALIDATION & SUBMIT ─── */
+/* ─── CONTACT FORM — PHPMailer backend ─── */
 const form=document.getElementById('cform');
 const sbtn=document.getElementById('sbtn');
 const ffb=document.getElementById('ffb');
@@ -942,7 +1103,10 @@ function se(id,show){
   if(err) err.classList.toggle('show',show);
   if(inp) inp.classList.toggle('ie',show);
 }
-['fn','fem','fsj','fmg'].forEach(id=>document.getElementById(id).addEventListener('input',()=>se(id,false)));
+['fn','fem','fsj','fmg'].forEach(id=>{
+  const el=document.getElementById(id);
+  if(el) el.addEventListener('input',()=>se(id,false));
+});
 
 function validate(){
   const n=document.getElementById('fn').value.trim();
@@ -960,34 +1124,53 @@ function validate(){
 form.addEventListener('submit',async(e)=>{
   e.preventDefault();
   if(!validate())return;
+  if(document.getElementById('website').value.trim())return;
+
   sbtn.disabled=true;
   document.getElementById('btxt').style.display='none';
   document.getElementById('bld').style.display='inline';
   ffb.className='ffb';
+
   try{
-    if(EJS_KEY!=='YOUR_EMAILJS_PUBLIC_KEY'){
-      await emailjs.send(EJS_SVC,EJS_TPL,{
-        from_name: document.getElementById('fn').value.trim(),
-        from_email:document.getElementById('fem').value.trim(),
-        phone:     document.getElementById('fph').value.trim(),
-        subject:   document.getElementById('fsj').value.trim(),
-        message:   document.getElementById('fmg').value.trim(),
-        to_email:  TO_EMAIL
-      });
-    } else {
-      await new Promise(r=>setTimeout(r,1100));
-    }
-    ffb.textContent='✓ Message sent! Prabin will reply to you shortly.';
+    await emailjs.send('service_mcqglv8','template_kye6q6g',{
+      from_name:document.getElementById('fn').value.trim(),
+      from_email:document.getElementById('fem').value.trim(),
+      phone:document.getElementById('fph').value.trim(),
+      subject:document.getElementById('fsj').value.trim(),
+      message:document.getElementById('fmg').value.trim(),
+      to_email:'mr.binpra@gmail.com',
+      recipient:'mr.binpra@gmail.com'
+    });
+    ffb.textContent='✓ Message sent successfully. Prabin will reply shortly.';
     ffb.className='ffb ok';
     form.reset();
-  } catch(err){
-    ffb.textContent='✗ Send failed. Email directly: mr.binpra@gmail.com';
+  }catch(err){
+    ffb.textContent='✗ Something went wrong. Please email mr.binpra@gmail.com directly.';
     ffb.className='ffb ng';
-  } finally{
+  }finally{
     sbtn.disabled=false;
     document.getElementById('btxt').style.display='inline';
     document.getElementById('bld').style.display='none';
   }
+});
+
+/* ─── SCROLL REVEALS ─── */
+const revealObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+},{threshold:.12, rootMargin:'0px 0px -40px'});
+document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+
+/* ─── HERO BAR ANIMATION ─── */
+document.querySelectorAll('.hviz-bar').forEach((bar,i)=>{
+  const h=bar.style.height;
+  bar.style.setProperty('--bar-h',h);
+  bar.style.height='0';
+  setTimeout(()=>bar.style.height=h,250+i*90);
 });
 
 /* ─── CHATBOT ─── */
